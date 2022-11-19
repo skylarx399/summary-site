@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>About And Contact</title>
+  </head>
+  <body>
+    <div class="container">
+      <form onsubmit="sendEmail(); reset(); return false;">
+        <h3>For Any Questions!</h3>
+        <input type="text" id="name" placeholder="Your Name" required />
+        <input type="email" id="email" placeholder="Email id" required />
+        <input type="text" id="Phone" placeholder="Phone.no" required />
+        <textarea
+          id="message"
+          rows="4"
+          placeholder="How can we help you?"
+        ></textarea>
+        <button type="submit">Send</button>
+      </form>
+    </div>
+    <section class="about">
+      <div class="main">
+        <img src="img/aayusha.png">
+        <div class="about-text">
+          <h1><u>About Us</u></h1>
+          <h5>Developer<span> & Designer</span></h5>
+          <p>
+            We are here to help you for ur problems that u can't find solutions.
+            We post every week new summary if u can't find ur desired summary then u can contact us through our
+            "For Any Questions!". Feel free to ask us.Thank You🙂🙂🙂🙂🙂!!!
+          </p>
+          <button type="button">Let's Talk</button>
+        </div>
+      </div>
+    </section>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script>
+      function sendEmail() {
+        Email.send({
+          Host: "smtp.gmail.com",
+          Username: "aayushakhadka112@gmail.com",
+          Password: "Pa00w@rd",
+          To: "suyash.is20@bmsce.ac.in",
+          From: document.getElementById("email").value,
+          Subject: "New contact form Enquiry",
+          Body:
+            "Name: " +
+            document.getElementById("name").value +
+            "<br> Email: " +
+            document.getElementById("email").value +
+            "<br>Phone no: " +
+            document.getElementById("phone").value +
+            "<br>Message: " +
+            document.getElementById("message").value,
+        }).then((message) => alert(message));
+      }
+    </script>
+  </body>
+</html>
